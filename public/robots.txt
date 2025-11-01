@@ -1,0 +1,13 @@
+# Robots.txt para Dr. Gustavo Mendes e Silva
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://drgustavomendes.com/sitemap.xml
+
+# Otimização para bots de busca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

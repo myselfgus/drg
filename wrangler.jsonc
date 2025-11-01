@@ -1,0 +1,69 @@
+{
+  // Cloudflare Worker configuration for Dr. Gustavo Mendes e Silva website
+  "name": "artiste-site",
+  "compatibility_date": "2025-01-15",
+  "node_compat": true,
+  
+  "main": "./app/api/worker.ts",
+  
+  // Environment variables
+  "vars": {
+    "ENVIRONMENT": "production",
+    "NEXT_PUBLIC_SITE_URL": "https://drgustavomendes.com"
+  },
+  
+  // Bindings for Cloudflare services
+  "ai": {
+    "binding": "AI"
+  },
+  
+  "vectorize": {
+    "bindings": [
+      {
+        "binding": "VECTORIZE",
+        "index_name": "artiste-search"
+      }
+    ]
+  },
+  
+  "d1_databases": {
+    "bindings": [
+      {
+        "binding": "DB",
+        "database_name": "artiste-db",
+        "database_id": "your-database-id"
+      }
+    ]
+  },
+  
+  "kv_namespaces": {
+    "bindings": [
+      {
+        "binding": "KV",
+        "id": "your-kv-namespace-id"
+      }
+    ]
+  },
+  
+  "analytics_engine_datasets": {
+    "bindings": [
+      {
+        "binding": "ANALYTICS"
+      }
+    ]
+  },
+  
+  // Routes configuration
+  "routes": [
+    {
+      "pattern": "drgustavomendes.com/*",
+      "zone_name": "drgustavomendes.com"
+    }
+  ],
+  
+  // Compatibility flags for modern features
+  "compatibility_flags": [
+    "nodejs_compat",
+    "streams_enable_constructors"
+  ]
+}
